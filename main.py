@@ -1,9 +1,17 @@
 from fastapi import FastAPI, HTTPException
 from models import all_todos, Todo, TodoCreate, TodoUpdate
 from typing import List
+from database import db_connect
+import sys
+import database
+print(sys.executable)
 
 app = FastAPI()
 
+@app.get('/db-connection')
+def db_connect_test():
+    inserted_id = database.insert_one()
+    return {'info': str(inserted_id)}
 
 @app.get("/")
 async def root():

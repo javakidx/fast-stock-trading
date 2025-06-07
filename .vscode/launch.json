@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "debugpy",
+      "request": "launch",
+      "name": "Run FastAPI with Uvicorn",
+      "module": "uvicorn",
+      "args": ["${input:entryPoint}", "--reload"],
+      "jinja": true,
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "entryPoint",
+      "type": "pickString",
+      "description": "Select the entry point for Uvicorn (format: filename:app)",
+      "options": ["main:app"]
+    }
+  ]
+}

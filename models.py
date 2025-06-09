@@ -1,11 +1,7 @@
-from enum import IntEnum
 from typing import List, Dict, Optional
 from pydantic import BaseModel, Field
+from enums import Priority
 
-class Priority(IntEnum):
-    LOW = 3
-    MEDIUM = 2
-    HIGH = 1
     
 class TodoBase(BaseModel):
     todo_name: str = Field(..., min_length=1, max_length=512, description='Name of the todo item')
@@ -30,3 +26,10 @@ all_todos: List[Todo] = [
     Todo(todo_id=4, todo_name='Shop', description='Go shopping', priority=Priority.LOW),
     Todo(todo_id=5, todo_name='Meditate', description='Meditate for 10 minutes', priority=Priority.MEDIUM)
 ]
+
+class Stock(BaseModel):
+    symbol: str = Field(..., min_length=1, max_length=10, description='Symbol of the stock')
+    name: str = Field(..., min_length=1, max_length=100, description='Name of the stock')
+    market_type: str = Field(..., min_length=1, max_length=100, description='Market type of the stock')
+    industry: str = Field(..., min_length=1, max_length=50, description='Industry of the stock')
+    issue_date: Optional[str] = Field(None, description='Issue date of the stock')

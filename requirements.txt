@@ -1,10 +1,13 @@
 bs4~=0.0.2
 fastapi~=0.115.12
+fastapi[standard]
 redis
 types-redis
 uvicorn
 pymongo~=4.13.0
 requests~=2.32.3
 beautifulsoup4~=4.13.4
+prometheus_client
+prometheus-fastapi-instrumentator
 pydantic~=2.11.5
 python-dotenv~=1.1.0

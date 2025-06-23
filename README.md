@@ -3,12 +3,17 @@
 ## Start/Stop App
 
 ### Start App
-
-- Execute `docker compose -f docker/docker-compose.yml up`
+- Prepare a `.env` file that contains the variables as below:
+1. MONGO_USER=\<your setting>
+2. MONGO_PASSWORD=\<your setting>
+3. MONGO_HOST=\<your setting>
+4. MONGO_PORT=\<your setting>
+5. MONGO_DB=\<your setting>
+- Execute `docker compose --env-file .env -f docker/docker-compose.yml up`
 
 ### Stop App
 
-- Execute `docker compose -f docker/docker-compose.yml down`
+- Execute `docker compose --env-file .env -f docker/docker-compose.yml down`
 
 ## Grafana
 
